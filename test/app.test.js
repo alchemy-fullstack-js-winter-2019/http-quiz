@@ -10,8 +10,6 @@ describe('Pirates API', () => {
             });
     });
 
-
-
     it('can get the KING penguin', () => {
         return request(app)
             .get('/api/penguin/king?format=full')
