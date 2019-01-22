@@ -16,11 +16,7 @@ describe('penguins API', () => {
             .get('/api/penguins/king?format=full')
             .then(res => {
                 expect(res.body).toEqual(
-                    {
-                        name: 'bernice',
-                        description: 'What a penguin!',
-                        age: 7
-                    });
+                    { name: 'bernice' }, { description: 'What a penguin!' }, { age: 7 });
             });
     });
     it('get penguins simple', () => {
