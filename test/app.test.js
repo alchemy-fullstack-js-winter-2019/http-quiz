@@ -1,6 +1,17 @@
 const request = require('supertest');
 const app = require('../lib/app');
 
+const createPenguins = name => {
+    return request(app)
+        .post('/people')
+        .send({
+            name,
+            description: 'What a penguin',
+            age: 7,
+        })
+        .then(res => res.body);
+};
+
 describe('Penguins API', () => {
     it('gets all penguins', () => {
         const namesofPenguin = ['bernice', 'bernard'];
