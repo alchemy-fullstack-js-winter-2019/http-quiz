@@ -12,7 +12,7 @@ describe('Pirates API', () => {
 
     it('can get the KING penguin', () => {
         return request(app)
-            .get('/api/penguin/king?format=full')
+            .get('/api/penguin/king?format=<full')
             .then(res => {
                 expect(res.body).toEqual({
                     name: 'bernice',
