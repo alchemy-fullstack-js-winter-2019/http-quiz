@@ -33,8 +33,14 @@ describe('penguins API', () => {
       });
   });
 
-  // it('', () => {
+  // DELETE /mistake should return { deleted: true }
+  it('can respond with json if DELETE /mistake requested', () => {
+    return request(app)
+      .delete('/mistake')
+      .then(res => {
+        expect(res.body).toEqual({ deleted: true });
+      });
+  });
 
-  // });
 
 });
