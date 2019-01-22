@@ -13,7 +13,6 @@ describe('penguins API', () => {
         return request(app)
             .get('/api/penguin/king?format=simple')
             .then(res => {
-                console.log(res.body);
                 expect(res.body).toEqual({
                     name: 'bernice'
                 });
@@ -23,7 +22,6 @@ describe('penguins API', () => {
         return request(app)
             .get('/api/penguin/king?format=full')
             .then(res => {
-                console.log(res.body);
                 expect(res.body).toEqual({
                     name: 'bernice',
                     description: 'What a penguin!',
