@@ -6,7 +6,29 @@ describe('Penguins API', () => {
         return request(app)
             .get('/api/penguins')
             .then(res => {
-                expect(res.body).toEqual({ 'bernice': 'bernard' });
+                expect(res.body).toEqual(['bernice', 'bernard']);
             });
     });
+
+    it('will return json if format is missing', () =>{
+        return request(app)
+            .get('/api/penguin/king?format=<simple/full')
+            .then(res => {
+                expect(res.body).toEqual({
+                    name: 'bernice',
+                    decription: 'What a penguin!',
+                    age: 7
+                });
+            });
+    });
+
+    it('will return deleted object', () => {
+        return request(app)
+            .delete('/mistake')
+            .then(res => {
+                expect(res.body).toEqual({ "deleted": "true" });
+            });
+    });
+  
+
 });
