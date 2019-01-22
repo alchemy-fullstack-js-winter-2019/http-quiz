@@ -42,5 +42,13 @@ describe('penguins API', () => {
       });
   });
 
+  // Any other response should return a 404 status code
+  it('displays error when path not found', () => {
+    return request(app)
+      .get('/blah')
+      .then(res => {
+        expect(res.status).toEqual(404);
+      });
+  });
 
 });
