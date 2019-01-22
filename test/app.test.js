@@ -20,4 +20,15 @@ describe("Penguins API", () => {
         expect(res.body).toEqual({ deleted: true });
       })
   })
+  it('returns full penguin object if search is full', () => {
+    return request(app)
+    .get('/api/penguins/king?format=full')
+    .then(res => {
+      expect(res.body).toEqual({
+        name: 'bernice',
+        description: 'What a penguin!',
+        age: 7
+      })
+    })
+  })
 });
