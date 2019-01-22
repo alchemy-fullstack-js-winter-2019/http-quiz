@@ -9,20 +9,21 @@ describe('Penguins API', () => {
                 expect(res.body).toEqual(
                     ['bernice', 'bernard']
                 );
-
             });
     });
 
-    it('can get all info on one penguin' () => {
-      return request(app)
-        .get('/penguin/king?format=<full>')
-        .then(res => {
-          expect(res.body).toEqual(
-            {
-              name: 'bernice',
-              description: 'What a penguin!',
-              age: 7
-          });
-        })
-    })
+    it('can get all info on one penguin', () => {
+        return request(app)
+            .get('/penguin/king?format=<full>')
+            .then(res => {
+                expect(res.body).toEqual(
+                    {
+                        name: 'bernice',
+                        description: 'What a penguin!',
+                        age: 7
+                    }
+                );
+            });
+    });
+
 });
