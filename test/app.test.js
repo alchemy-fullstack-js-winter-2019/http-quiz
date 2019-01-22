@@ -33,7 +33,7 @@ describe('penguins API', () => {
         return request(app)
             .delete('/mistake')
             .then(res => {
-                expect(res.body).toEqual({ deleted: 1 });
+                expect(res.body).toEqual({ deleted: true });
             });
     });
 });
