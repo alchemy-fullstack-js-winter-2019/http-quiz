@@ -4,19 +4,31 @@
   "description": "HTTP Quiz ===",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
-    "jest": "jest",
-    "test": "npm run jest",
-    "test:watch": "npm run jest -- --watch",
-    "start": "node index.js",
-    "start:watch": "nodemon index.js"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "pretest": "npm run lint",
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^23.6.0",
-    "nodemon": "^1.18.4",
-    "supertest": "^3.3.0"
+    "eslint": "^5.12.1",
+    "jest": "^23.6.0"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cruzayye/http-quiz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cruzayye/http-quiz/issues"
+  },
+  "homepage": "https://github.com/cruzayye/http-quiz#readme",
+  "dependencies": {
+    "supertest": "^3.4.2"
   }
 }
