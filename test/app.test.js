@@ -31,4 +31,11 @@ describe('penguins API', () => {
                 });
             });
     });
+    it.only('can fake delete', () => {
+        return request(app)
+            .delete('/mistake')
+            .then(res => {
+                expect(res.body).toEqual({ deleted: 1 });
+            });
+    });
 });
