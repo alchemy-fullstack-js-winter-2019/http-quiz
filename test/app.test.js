@@ -1,7 +1,7 @@
 const request = require('supertest');
 const app = require('../lib/app');
 
-describe('Pirates API', () => {
+describe('penguins API', () => {
     it('write a test...', () => {
         return request(app)
             .get('/api/penguins')
@@ -13,6 +13,7 @@ describe('Pirates API', () => {
         return request(app)
             .get('/api/penguin/king?format=simple')
             .then(res => {
+                console.log(res.body);
                 expect(res.body).toEqual({
                     name: 'bernice'
                 });
@@ -22,6 +23,7 @@ describe('Pirates API', () => {
         return request(app)
             .get('/api/penguin/king?format=full')
             .then(res => {
+                console.log(res.body);
                 expect(res.body).toEqual({
                     name: 'bernice',
                     description: 'What a penguin!',
