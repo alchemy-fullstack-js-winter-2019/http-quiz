@@ -1,23 +1,35 @@
 const request = require('supertest');
 const app = require('../lib/app');
 
-const createPenguin = (name) => {
-    return request(app)
-        .post('/api/penguins')
-        .send({
-            name: name,
-        })
-        .then(res => res.body);
-};
-describe('Pirates API', () => {
+
+describe('penguins API', () => {
     it('get penguins...', () => {
-        const namesToCreate = ['bernice', 'bernard'];
-        return  Promise.all(namesToCreate.map(createPenguin))
-            .then(() => {
-                return request(app)
-                    .post('/api/penguins')
-                    .then(res => {
-                        expect(res.body).toEqual(['bernice', 'bernard']);
+        return request(app)
+            .get('/api/penguins')
+            .then(res => {
+                expect(res.body).toEqual(
+                    'bernice', 'bernard');
+            });
+    });
+    it('get penguins...', () => {
+        return request(app)
+            .get('/api/penguins/king?format=full')
+            .then(res => {
+                expect(res.body).toEqual(
+                    {
+                        name: 'bernice',
+                        description: 'What a penguin!',
+                        age: 7
+                    });
+            });
+    });
+    it('get penguins...', () => {
+        return request(app)
+            .get('/api/penguins/king?format=simple')
+            .then(res => {
+                expect(res.body).toEqual(
+                    {
+                        name: 'bernice',
                     });
             });
     });
