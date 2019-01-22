@@ -18,4 +18,15 @@ describe('Pirates API', () => {
                 });
             });
     }); 
+    it('can get full query string', () => {
+        return request(app)
+            .get('/api/penguin/king?format=full')
+            .then(res => {
+                expect(res.body).toEqual({
+                    name: 'bernice',
+                    description: 'What a penguin!',
+                    age: 7
+                });
+            });
+    });
 });
