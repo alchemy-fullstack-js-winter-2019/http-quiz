@@ -10,7 +10,7 @@ describe('Penguins API', () => {
             });
     });
 
-    it('will return json if format is missing', () =>{
+    it('will return json if format is full', () =>{
         return request(app)
             .get('/api/penguin/king?format=<simple/full')
             .then(res => {
@@ -26,7 +26,7 @@ describe('Penguins API', () => {
         return request(app)
             .delete('/mistake')
             .then(res => {
-                expect(res.body).toEqual({ "deleted": "true" });
+                expect(res.body).toEqual({ 'deleted': 'true' });
             });
     });
   
