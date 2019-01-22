@@ -8,10 +8,10 @@ describe('penguins API', () => {
             .get('/api/penguins')
             .then(res => {
                 expect(res.body).toEqual(
-                    'bernice', 'bernard');
+                    { name: 'bernice' }, { name: 'bernard' });
             });
     });
-    it('get penguins...', () => {
+    it('get penguins in full...', () => {
         return request(app)
             .get('/api/penguins/king?format=full')
             .then(res => {
@@ -23,14 +23,12 @@ describe('penguins API', () => {
                     });
             });
     });
-    it('get penguins...', () => {
+    it('get penguins simple', () => {
         return request(app)
             .get('/api/penguins/king?format=simple')
             .then(res => {
                 expect(res.body).toEqual(
-                    {
-                        name: 'bernice',
-                    });
+                    { name: 'bernice' });
             });
     });
 });
