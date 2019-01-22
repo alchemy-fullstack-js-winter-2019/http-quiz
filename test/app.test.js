@@ -12,7 +12,7 @@ describe('Penguins API', () => {
     });      
     
 
-    it(('gets a single penguin with query format=full', () => {
+    it('gets a single penguin with query format=full', () => {
         return request(app)
             .get('/api/penguins/king?format=full')
             .then(({ body }) => {
@@ -23,6 +23,6 @@ describe('Penguins API', () => {
                 };
                 expect(body).toEqual(result);
             });
-    }));      
+    });      
 
 });
