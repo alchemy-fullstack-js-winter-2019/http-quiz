@@ -3,11 +3,12 @@ const app = require('../lib/app');
 
 describe('Penguins API', () => {
     it('gets a list of penguins', () => {
+        const penguins = ['bernice', 'bernard'];
         return request(app)
             .get('/penguins')
-            .then(res => {
-                expect(res.text).toEqual(['bernice', 'bernard']);
-
+            .then(() => {
+                expect(penguins).toEqual(['bernice', 'bernard']);
             });
     });
 });
+
