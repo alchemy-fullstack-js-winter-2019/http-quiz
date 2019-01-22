@@ -40,7 +40,6 @@ describe('penguins API', () => {
         return request(app)
             .get('/banana')
             .then(res => {
-                console.log(res.status);
                 expect(res.status).toEqual(404);
             });
     });
