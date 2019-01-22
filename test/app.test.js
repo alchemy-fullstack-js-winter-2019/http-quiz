@@ -25,4 +25,12 @@ describe('Penguins API', () => {
         name: 'bernice',
       }));
   });
+
+  it('deletes', () => {
+    return request(app)
+      .delete('/mistake')
+      .then(res => expect(JSON.parse(res.text)).toEqual({
+        deleted: true
+      }));
+  });
 });
