@@ -6,7 +6,7 @@ describe('Penguins API', () => {
         return request(app)
             .get('/api/penguins')
             .then((res => {
-                expect(res.body).toEqual(['bernice', 'bernard]']);
+                expect(res.body).toEqual(['bernice', 'bernard']);
         
             }));
     });      
