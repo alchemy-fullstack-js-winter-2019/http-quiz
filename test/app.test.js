@@ -27,4 +27,12 @@ describe('penguins API', () => {
                     { name: 'bernice' });
             });
     });
+    it('mistake', () => {
+        return request(app)
+            .delete('/api/penguins/mistake')
+            .then(res => {
+                expect(res.body).toEqual(
+                    { deleted: 1 });
+            });
+    });
 });
