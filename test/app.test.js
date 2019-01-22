@@ -31,4 +31,13 @@ describe("Penguins API", () => {
       })
     })
   })
+  it('returns simple penguin object if search isnt full', () => {
+    return request(app)
+    .get('/api/penguins/king?format=simple')
+    .then(res => {
+      expect(res.body).toEqual({
+        name: 'bernice',
+      })
+    })
+  })
 });
