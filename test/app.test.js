@@ -1,8 +1,12 @@
 const request = require("supertest");
 const app = require("../lib/app");
 
-describe("Pirates API", () => {
-  it("write a test...", () => {
-    expect(true);
-  });
+describe("Penguins API", () => {
+  it('returns an array of penguin names', () => {
+    return request(app)
+      .get('/api/penguins')
+      .then(res => {
+        expect(res).toHaveLength(2);
+      })
+  })
 });
