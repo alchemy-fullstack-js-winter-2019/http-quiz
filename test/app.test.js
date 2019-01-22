@@ -33,4 +33,10 @@ describe('Penguins API', () => {
         deleted: true
       }));
   });
+
+  it('errors on unsupported requests', () => {
+    return request(app)
+      .get('/blah')
+      .then(res => expect(res.statusCode).toEqual(404));
+  });
 });
