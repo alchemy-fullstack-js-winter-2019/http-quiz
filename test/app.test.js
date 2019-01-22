@@ -2,8 +2,8 @@ const request = require('supertest');
 const app = require('../lib/app');
 
 describe('Penguins API', () => {
-    it('write a test...', () => {
-        expect(res.body).toEqual([
+    it('can give the names of penguins', (body) => {
+        expect(body).toEqual([
             'bernice',
             'bernard'
         ]);
