@@ -3,7 +3,7 @@ const app = require('../lib/app');
 
 describe('penguins API', () => {
   // GET /api/penguins should return ['bernice', 'bernard']
-  it('can respond with json', () => {
+  it('can respond with json for a path', () => {
     return request(app)
       .get('/api/penguins')
       .then(res => {
@@ -12,7 +12,7 @@ describe('penguins API', () => {
   });
 
   // GET /api/penguin/king?format=<simple|full>
-  it('can conditionally respond with json per path', () => {
+  it('can conditionally respond with json per url query format', () => {
     return request(app)
       .get('/api/penguin/king?format=full')
       .then(res => {
