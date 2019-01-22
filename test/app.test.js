@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const request = require('supertest');
 const app = require('../lib/app');
 const mkdirp = require('mkdirp');
@@ -37,8 +38,56 @@ describe('Penguins API', () => {
                 done();
             });
     });
-    
-    it('write a test...', () => {
-        expect(true);
+
+    it('can create and return a penguin as a json response', () => {
+        return request(app)
+            .post('/penguins')
+            .send({
+                name: 'bernice',
+                description: 'What a penguin!',
+                age: 7
+            })
+            .then(res => {
+                expect(res.body).toEqual({
+                    name: 'bernice',
+                    description: 'What a penguin!',
+                    age: 7
+                });
+            });
     });
+
+    it('can return a simple format', () => {
+        return request(app)
+            .post('/penguins')
+            .send({
+                name: 'bernice',
+                description: 'What a penguin!',
+                age: 7
+            })
+            .then(res => {
+                expect(res.body).toEqual({
+                    name: 'bernice'
+                });
+            });
+    });
+
+    it('can delete a mistake', () => {
+        return createPenguin('penny')
+            .then(createdPenguin => {
+                return request(app)
+                    .delete('/penguins/name')
+                    .then(res => {
+                        expect(res.body).toEqual({ deleted: 1 });
+                    });
+            });
+    });
+
+    it('displays an error when the path is not found', () => {
+        return request(app)
+            .get('/error')
+            .then(res => {
+                expect(res.status).toEqual(404);
+            });
+    });
+
 });
