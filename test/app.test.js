@@ -36,4 +36,12 @@ describe('penguins API', () => {
                 expect(res.body).toEqual({ deleted: true });
             });
     });
+    it('returns a 404 code', () => {
+        return request(app)
+            .get('/banana')
+            .then(res => {
+                console.log(res.status);
+                expect(res.status).toEqual(404);
+            });
+    });
 });
