@@ -17,4 +17,12 @@ describe('Penguins API', () => {
         age: 7
       }));
   });
+
+  it('formats full', () => {
+    return request(app)
+      .get('/api/penguins/king?format=simple')
+      .then(res => expect(JSON.parse(res.text)).toEqual({
+        name: 'bernice',
+      }));
+  });
 });
