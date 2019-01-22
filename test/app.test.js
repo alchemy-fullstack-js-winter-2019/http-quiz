@@ -6,7 +6,6 @@ describe('Penguins API', () => {
         return request(app)
             .get('/api/penguins')
             .then((res) => {
-                console.log(res.body);
                 expect(res.body).toHaveLength(2);
             });
     });
