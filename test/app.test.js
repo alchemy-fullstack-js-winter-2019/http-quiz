@@ -33,4 +33,12 @@ describe('Penguins API', () => {
             });
     });
 
+    it('returns error 404 if bad path', () => {
+        return request(app)
+            .get('/api/penquins')
+            .then(res => {
+                expect(res.status).toEqual(404);
+            });
+    });
+
 });
