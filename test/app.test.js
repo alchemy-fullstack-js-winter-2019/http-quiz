@@ -23,6 +23,14 @@ describe('Penguins API', () => {
                 };
                 expect(body).toEqual(result);
             });
-    });      
+    });  
+    
+    it('deletes mistake', () => {
+        return request(app)
+            .del('/mistake')
+            .then(res => {
+                expect(res.text).toEqual('<p>All tracks covered</p>');
+            });
+    });
 
 });
