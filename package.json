@@ -18,5 +18,18 @@
     "jest": "^23.6.0",
     "nodemon": "^1.18.4",
     "supertest": "^3.3.0"
-  }
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Masmics/http-quiz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Masmics/http-quiz/issues"
+  },
+  "homepage": "https://github.com/Masmics/http-quiz#readme"
 }
